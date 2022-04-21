@@ -10,7 +10,14 @@ export default function News(props) {
 
   useEffect(() => {
     const getData = async () => {
-      let url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&page=${pageNo}&pageSize=${props.pageSize}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+      console.log("First");
+      let url =
+        "https://newsapi.org/v2/top-headlines?" +
+        `page=${pageNo}` +
+        `${props.country !== undefined ? "&country=" + props.country : ""}` +
+        `${props.language !== undefined ? "&language=" + props.language : ""}` +
+        `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
+        `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
       let rawData = await fetch(url);
       let data = await rawData.json();
       setArticles(data.articles);
@@ -20,22 +27,31 @@ export default function News(props) {
   }, []);
   useEffect(() => {
     const getData = async () => {
+      setArticles([]);
+      console.log("ipdate");
       setIsLoading(true);
-      let url = `https://newsapi.org/v2/top-headlines?&category=${props.category}&country=${props.country}&page=${pageNo}&pageSize=${props.pageSize}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+      let url =
+        "https://newsapi.org/v2/top-headlines?" +
+        `page=${pageNo}` +
+        `${props.category ? "&category=" + props.category : ""}` +
+        `${props.country !== undefined ? "&country=" + props.country : ""}` +
+        `${props.language !== undefined ? "&language=" + props.language : ""}` +
+        `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
+        `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
       let rawData = await fetch(url);
       let data = await rawData.json();
+      console.log("pageSize " + props.pageSize + " " + typeof props.pageSize);
       setArticles(data.articles);
-      setIsLoading(false);
     };
     getData();
-  }, [props.category, props.country, props.pageSize, pageNo]);
+  }, [props.category, props.country, props.pageSize, props.language, pageNo]);
 
   return (
     <>
       {isLoading && <Spinner />}
       <div>
         <h1 className="font-medium text-center text-slate-800 dark:text-white text-3xl">
-          {props.title}
+          {props.title} News
         </h1>
         <div className="flex flex-wrap justify-center mt-10 gap-8">
           {articles.map((article, index) => {
@@ -65,14 +81,13 @@ export default function News(props) {
 }
 
 News.defaultProps = {
-  category: "",
-  country: "in",
-  pageSize: 20,
+  pageSize: "20",
 };
 
 News.propTypes = {
   title: PropTypes.string.isRequired,
   category: PropTypes.string,
   country: PropTypes.string,
-  pageSize: PropTypes.number,
+  language: PropTypes.string,
+  pageSize: PropTypes.string,
 };

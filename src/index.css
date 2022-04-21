@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -18,4 +19,21 @@ body::-webkit-scrollbar {
 
 .active {
   @apply dark:text-white !important;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  /* height: 56px; */
+}
+*::-webkit-scrollbar-track {
+  @apply dark:bg-slate-800;
+  width: 10px;
+  z-index: 100000;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply dark:bg-slate-500;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  z-index: 100000;
 }
