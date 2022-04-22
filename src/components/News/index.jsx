@@ -10,10 +10,10 @@ export default function News(props) {
 
   useEffect(() => {
     const getData = async () => {
-      console.log("First");
       let url =
         "https://newsapi.org/v2/top-headlines?" +
         `page=${pageNo}` +
+        `${props.category !== undefined ? "&category=" + props.category : ""}` +
         `${props.country !== undefined ? "&country=" + props.country : ""}` +
         `${props.language !== undefined ? "&language=" + props.language : ""}` +
         `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
@@ -28,19 +28,17 @@ export default function News(props) {
   useEffect(() => {
     const getData = async () => {
       setArticles([]);
-      console.log("ipdate");
       setIsLoading(true);
       let url =
         "https://newsapi.org/v2/top-headlines?" +
         `page=${pageNo}` +
-        `${props.category ? "&category=" + props.category : ""}` +
+        `${props.category !== undefined ? "&category=" + props.category : ""}` +
         `${props.country !== undefined ? "&country=" + props.country : ""}` +
         `${props.language !== undefined ? "&language=" + props.language : ""}` +
         `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
         `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
       let rawData = await fetch(url);
       let data = await rawData.json();
-      console.log("pageSize " + props.pageSize + " " + typeof props.pageSize);
       setArticles(data.articles);
     };
     getData();
