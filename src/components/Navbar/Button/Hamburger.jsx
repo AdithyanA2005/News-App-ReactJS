@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export default function Hamburger(props) {
   return (
     <>
-      <button className="block w-6 dark:text-gray-300 lg:hidden" onClick={props.onClickHandle}>
+      <button ref={props.reference} className="block w-6 dark:text-gray-300 lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
             fill="currentColor"
@@ -16,5 +16,5 @@ export default function Hamburger(props) {
 }
 
 Hamburger.propTypes = {
-  onClickHandle: PropTypes.func.isRequired,
+  reference: PropTypes.object.isRequired,
 };

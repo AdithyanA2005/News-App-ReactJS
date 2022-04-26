@@ -5,7 +5,7 @@ export default function DarkModeBtn(props) {
     <>
       <button
         onClick={props.onClickHandle}
-        className="text-gray-500 dark:text-gray-200 dark:hover:text-white shadow-sm shadow-slate-500 rounded-full h-9 w-9 p-2 grid place-items-center"
+        className="text-gray-500 dark:text-gray-200 dark:hover:text-white shadow-slate-500 rounded-full h-9 w-9 p-2 grid place-items-center"
       >
         {props.isDark ? (
           <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
