@@ -2,47 +2,48 @@ import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "../Spinner";
 import PropTypes from "prop-types";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function News(props) {
   const [articles, setArticles] = useState([]);
+  const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [pageNo, setPageNo] = useState(1);
+  const truncate = (data, end, start = 0) => {
+    return data.slice(start, end) + (data.length > end ? "..." : "");
+  };
+  const getNews = async (page = pageNo) => {
+    let url =
+      "https://newsapi.org/v2/top-headlines?" +
+      `page=${page}` +
+      `${props.category !== undefined ? "&category=" + props.category : ""}` +
+      `${props.country !== undefined ? "&country=" + props.country : ""}` +
+      `${props.language !== undefined ? "&language=" + props.language : ""}` +
+      `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
+      `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    let rawData = await fetch(url);
+    let data = await rawData.json();
+    setArticles(articles.concat(data.articles));
+    setTotalResults(data.totalResults);
+    setIsLoading(false);
+  };
+  const getMoreNews = () => {
+    getNews(pageNo + 1);
+    setPageNo((prev) => prev + 1);
+  };
 
   useEffect(() => {
-    const getData = async () => {
-      let url =
-        "https://newsapi.org/v2/top-headlines?" +
-        `page=${pageNo}` +
-        `${props.category !== undefined ? "&category=" + props.category : ""}` +
-        `${props.country !== undefined ? "&country=" + props.country : ""}` +
-        `${props.language !== undefined ? "&language=" + props.language : ""}` +
-        `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
-        `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
-      let rawData = await fetch(url);
-      let data = await rawData.json();
-      setArticles(data.articles);
-      setIsLoading(false);
-    };
-    getData();
+    document.title = props.title + " - AdiNews";
+    getNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    const getData = async () => {
-      setArticles([]);
-      setIsLoading(true);
-      let url =
-        "https://newsapi.org/v2/top-headlines?" +
-        `page=${pageNo}` +
-        `${props.category !== undefined ? "&category=" + props.category : ""}` +
-        `${props.country !== undefined ? "&country=" + props.country : ""}` +
-        `${props.language !== undefined ? "&language=" + props.language : ""}` +
-        `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
-        `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
-      let rawData = await fetch(url);
-      let data = await rawData.json();
-      setArticles(data.articles);
-    };
-    getData();
-  }, [props.category, props.country, props.pageSize, props.language, pageNo]);
+    document.title = props.title + " - AdiNews";
+    setIsLoading(true);
+    setArticles([]);
+    getNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.category, props.country, props.pageSize, props.language, props.title]);
 
   return (
     <>
@@ -51,28 +52,32 @@ export default function News(props) {
         <h1 className="font-medium text-center text-slate-800 dark:text-white text-3xl">
           {props.title} News
         </h1>
-        <div className="flex flex-wrap justify-center mt-10 gap-8">
-          {articles.map((article, index) => {
-            if (
-              article.title !== null &&
-              article.description !== null &&
-              article.url !== null &&
-              article.urlToImage !== null
-            )
-              return (
-                <NewsItem
-                  key={index}
-                  title={`${article.title.slice(0, 45)}${article.title.length > 50 && "..."}`}
-                  description={`${article.description.slice(0, 120)}${
-                    article.description.length > 120 && "..."
-                  }`}
-                  newsUrl={article.url}
-                  imageUrl={article.urlToImage}
-                />
-              );
-            else return null;
-          })}
-        </div>
+
+        <InfiniteScroll
+          className="overflow-hidden h-full flex-1 w-full"
+          style={{ height: "100%" }}
+          dataLength={articles.length}
+          next={getMoreNews}
+          hasMore={articles.length < 100 && articles.length < totalResults}
+          loader={<Spinner />}
+        >
+          <div className="flex flex-wrap justify-center mt-10 gap-8">
+            {articles.map((article, index) => {
+              if (article && article.description && article.url && article.urlToImage) {
+                return (
+                  <NewsItem
+                    key={index}
+                    title={truncate(article.title, 45)}
+                    description={truncate(article.description, 120)}
+                    newsUrl={article.url}
+                    imageUrl={article.urlToImage}
+                  />
+                );
+              }
+              return null;
+            })}
+          </div>
+        </InfiniteScroll>
       </div>
     </>
   );
