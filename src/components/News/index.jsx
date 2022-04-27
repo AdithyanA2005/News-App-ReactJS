@@ -47,7 +47,7 @@ export default function News(props) {
 
   return (
     <>
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner isFull />}
       <div>
         <h1 className="font-medium text-center text-slate-800 dark:text-white text-3xl">
           {props.title} News
