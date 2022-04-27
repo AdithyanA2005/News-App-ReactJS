@@ -34,7 +34,7 @@ export default function Dropdown(props) {
               "group-hover:flex overflow-y-auto max-h-96 absolute p-3 bg-white dark:bg-slate-700"
             } 
             ${!props.isDeskNav && isMobDropActive ? "flex" : "hidden"} 
-            flex-col gap-3 `}
+            flex-col gap-3 dropdown-content`}
         >
           {props.links.map((navLink, index) => (
             <NavItem key={index} url={navLink.url} title={navLink.title} />

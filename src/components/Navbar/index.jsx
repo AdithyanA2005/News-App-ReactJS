@@ -134,13 +134,13 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
+      abso
       {/* MOBILE NAVBAR */}
       <div ref={sidebarRef}>
         <div
           className={`${
             sidebarActive ? "translate-x-0" : "translate-x-full"
-          } flex flex-col gap-4  p-4 pt-16 top-0 absolute w-72 h-screen  overflow-y-scroll right-0 ease-in-out duration-500 bg-white backdrop-blur-xl bg-opacity-80 dark:backdrop-blur-xl dark:bg-opacity-80 dark:bg-slate-700`}
+          } dropdown-content flex flex-col gap-4 p-4 pt-16 top-0 fixed w-72 h-screen overflow-y-scroll right-0 ease-in-out duration-500 bg-white backdrop-blur-xl bg-opacity-80 dark:backdrop-blur-xl dark:bg-opacity-80 dark:bg-slate-700`}
         >
           <Dropdown title="Category" links={categoryLinks} />
           <Dropdown title="Language" links={languageLinks} />
