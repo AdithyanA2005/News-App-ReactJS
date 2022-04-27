@@ -24,4 +24,4 @@
 
 - [x] Make Logo working
 
-- [ ] Add BackToTop Button
+- [x] Add BackToTop Button

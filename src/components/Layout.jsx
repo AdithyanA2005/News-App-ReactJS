@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import BackToTop from "./BackToTop";
 import Navbar from "./Navbar";
 
 export default function Layout() {
@@ -10,6 +11,7 @@ export default function Layout() {
         <main className="pt-20 mx-auto max-w-7xl w-11/12">
           <Outlet />
         </main>
+        <BackToTop />
       </div>
     </>
   );
