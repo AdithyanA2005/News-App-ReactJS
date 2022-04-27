@@ -23,7 +23,7 @@ body::-webkit-scrollbar {
 }
 
 .active {
-  @apply dark:text-white !important;
+  @apply dark:text-white text-slate-700 !important;
 }
 
 *::-webkit-scrollbar {
