@@ -14,6 +14,8 @@
 
 - [ ] Clean index.css
 
-- [ ] Build the spinner component
+- [x] Build the spinner component
 
-- [ ] Add functionality of showing full title when hovered to newsItem
+- [x] Add functionality of showing full title when hovered to newsItem
+
+- [x] Add Abbrevations to website
