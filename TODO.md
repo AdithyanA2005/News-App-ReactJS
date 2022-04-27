@@ -19,3 +19,7 @@
 - [x] Add functionality of showing full title when hovered to newsItem
 
 - [x] Add Abbrevations to website
+
+- [ ] Fix Backdrop Difference in firefox and brave
+
+- [ ] Add Hide Sidebar on scroll functionality
