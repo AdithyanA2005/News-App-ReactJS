@@ -10,7 +10,7 @@
 
 - [ ] Customise scrollbar for diffrent browsers
 
-- [ ] Clean index.css
+- [x] Clean index.css
 
 - [x] Build the spinner component
 
