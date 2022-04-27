@@ -6,7 +6,7 @@ export default function Dropdown(props) {
   const [isMobDropActive, setIsMobDropActive] = useState(false);
   const toggleMobDropActive = () => setIsMobDropActive(!isMobDropActive);
   useEffect(() => {
-    if (props.sidebarOpen == false) return setIsMobDropActive(false);
+    if (props.sidebarOpen === false) return setIsMobDropActive(false);
   }, [props.sidebarOpen]);
 
   return (
