@@ -6,8 +6,6 @@
 
 - [x] Check whether the new code is working or not
 
-- [ ] Close Sidebar Dropdown on other dropdown active
-
 - [x] Close Sidebar Dropdown when sidebar closes
 
 - [ ] Customise scrollbar for diffrent browsers
