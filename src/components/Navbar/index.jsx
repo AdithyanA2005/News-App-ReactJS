@@ -105,13 +105,23 @@ export default function Navbar() {
     return document.documentElement.classList.remove("dark");
   }, [isDarkTheme]);
   useEffect(() => {
-    // HANDLE SIDEBAR OPEN AND CLOSE
     function handleMouseDown(event) {
+      // Handle sidebar open and close
       if (burgerRef.current.contains(event.target)) return setSidebarActive((prev) => !prev);
       if (!sidebarRef.current.contains(event.target)) return setSidebarActive(false);
     }
+    function handleScroll(event) {
+      // Handle sidebar close on body document scroll
+      console.log("as");
+      if (!sidebarRef.current.contains(event.target)) return setSidebarActive(false);
+    }
     document.addEventListener("mousedown", handleMouseDown);
-    return () => document.removeEventListener("mousedown", handleMouseDown);
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("scroll", handleScroll);
+    };
   });
 
   return (

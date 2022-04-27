@@ -22,4 +22,4 @@
 
 - [ ] Fix Backdrop Difference in firefox and brave
 
-- [ ] Add Hide Sidebar on scroll functionality
+- [x] Add Hide Sidebar on scroll functionality
