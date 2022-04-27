@@ -113,7 +113,6 @@ export default function Navbar() {
     }
     function handleScroll(event) {
       // Handle sidebar close on body document scroll
-      console.log("as");
       if (!sidebarRef.current.contains(event.target)) return setSidebarActive(false);
     }
     document.addEventListener("mousedown", handleMouseDown);
