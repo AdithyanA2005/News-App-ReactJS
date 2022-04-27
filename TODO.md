@@ -23,3 +23,5 @@
 - [x] Make Logo working
 
 - [x] Add BackToTop Button
+
+- [x] Add Top Loading bar with use Context

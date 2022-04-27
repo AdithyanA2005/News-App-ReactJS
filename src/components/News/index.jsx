@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "../Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+import LoaderContext from "../../context/Loader/LoaderContext";
 
 export default function News(props) {
   const [articles, setArticles] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [pageNo, setPageNo] = useState(1);
+  const loaderContext = useContext(LoaderContext);
   const truncate = (data, end, start = 0) => {
     return data.slice(start, end) + (data.length > end ? "..." : "");
   };
@@ -21,11 +23,15 @@ export default function News(props) {
       `${props.language !== undefined ? "&language=" + props.language : ""}` +
       `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
       `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    loaderContext.setProgress(10);
     let rawData = await fetch(url);
+    loaderContext.setProgress(60);
     let data = await rawData.json();
+    loaderContext.setProgress(80);
     setArticles(articles.concat(data.articles));
     setTotalResults(data.totalResults);
     setIsLoading(false);
+    loaderContext.setProgress(100);
   };
   const getMoreNews = () => {
     getNews(pageNo + 1);
