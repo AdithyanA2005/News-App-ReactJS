@@ -8,7 +8,7 @@
 
 - [ ] Close Sidebar Dropdown on other dropdown active
 
-- [ ] Close Sidebar Dropdown when sidebar closes
+- [x] Close Sidebar Dropdown when sidebar closes
 
 - [ ] Customise scrollbar for diffrent browsers
 
@@ -23,3 +23,5 @@
 - [ ] Fix Backdrop Difference in firefox and brave
 
 - [x] Add Hide Sidebar on scroll functionality
+
+- [ ] Make Logo working
