@@ -68,6 +68,7 @@ export default function News(props) {
                   <NewsItem
                     key={index}
                     title={truncate(article.title, 45)}
+                    titleAbbr={article.title}
                     description={truncate(article.description, 120)}
                     newsUrl={article.url}
                     imageUrl={article.urlToImage}

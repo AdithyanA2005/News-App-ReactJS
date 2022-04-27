@@ -12,9 +12,11 @@ export default function NewsItem(props) {
         />
         <div className="flex flex-1 flex-col justify-between gap-3 items-start p-5">
           <h1 className="font-medium text-slate-900 dark:text-white text-xl">
-            <a href={props.newsUrl} rel="noreferrer" target="_blank">
-              {props.title}
-            </a>
+            <abbr title={props.titleAbbr}>
+              <a href={props.newsUrl} rel="noreferrer" target="_blank">
+                {props.title}
+              </a>
+            </abbr>
           </h1>
           <p className="text-slate-800 dark:text-slate-200">{props.description}</p>
           <a
@@ -33,6 +35,7 @@ export default function NewsItem(props) {
 
 NewsItem.propTypes = {
   title: PropTypes.string.isRequired,
+  titleAbbr: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   newsUrl: PropTypes.string.isRequired,
