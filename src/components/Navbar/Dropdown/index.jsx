@@ -14,7 +14,7 @@ export default function Dropdown(props) {
           className={`
             ${props.isDeskNav ? "py-2" : "pl-3 font-semibold py-4 bg-slate-300 dark:bg-slate-900"}
             ${isMobDropActive && "mb-5"}
-          text-gray-600 hover:text-gray-700 dark:text-gray-200 dark:hover:text-white w-full flex items-center gap-1 justify-center rounded-lg
+           font-medium text-gray-600 hover:text-gray-700 dark:text-gray-200 dark:hover:text-white w-full flex items-center gap-1 justify-center rounded-lg
           `}
         >
           {props.title}

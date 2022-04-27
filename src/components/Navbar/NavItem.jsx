@@ -6,7 +6,7 @@ export default function NavItem(props) {
   return (
     <>
       <NavLink
-        className="hover:scale-105 ease-in-out duration-300 text-center text-gray-600 hover:text-gray-700 dark:text-gray-200 dark:hover:text-white"
+        className="font-medium hover:scale-105 ease-in-out duration-300 text-center text-gray-600 hover:text-gray-700 dark:text-gray-200 dark:hover:text-white"
         to={props.url}
       >
         {props.title}
