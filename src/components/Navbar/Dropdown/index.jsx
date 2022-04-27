@@ -22,7 +22,7 @@ export default function Dropdown(props) {
         >
           {props.title}
           <svg
-            className="w-2 h-3"
+            className="w-3 h-3 ease-in-out duration-500 group-hover:rotate-180"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
