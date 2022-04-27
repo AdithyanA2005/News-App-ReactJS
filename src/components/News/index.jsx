@@ -64,7 +64,9 @@ export default function News(props) {
           style={{ height: "100%" }}
           dataLength={articles.length}
           next={getMoreNews}
-          hasMore={pageNo < totalResults / props.pageSize && articles.length < totalResults}
+          hasMore={
+            !isLoading && pageNo < totalResults / props.pageSize && articles.length < totalResults
+          }
           loader={<Spinner />}
         >
           <div className="flex flex-wrap justify-center mt-10 gap-8">
