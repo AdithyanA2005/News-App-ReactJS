@@ -18,7 +18,7 @@
 
 - [x] Add Abbrevations to website
 
-- [ ] Fix Backdrop Difference in firefox and brave
+- [x] Fix Backdrop Difference in firefox and brave
 
 - [x] Add Hide Sidebar on scroll functionality
 
