@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import DarkModeButton from "./Button/DarkMode";
 import HamburgerButton from "./Button/Hamburger";
 import Dropdown from "./Dropdown";
@@ -129,8 +130,12 @@ export default function Navbar() {
       {/* DESKTOP NAVBAR */}
       <div className="fixed z-10 h-14 top-0 flex items-center px-3 py-3 w-full bg-white backdrop-blur-xl bg-opacity-80 dark:backdrop-blur-xl dark:bg-opacity-80 dark:bg-slate-700">
         <div className="flex justify-between w-full max-w-7xl mx-auto">
-          <h1 className="text-2xl justify-start w-1/4 text-gray-600 dark:text-gray-400 font-semibold">
-            AdiNews
+          <h1 className="hover:scale-105 hover:pl-2 ease-in-out duration-500 flex items-center text-2xl justify-start w-1/4 font-semibold">
+            <NavLink to="/">
+              <span className="text-slate-600 dark:text-slate-400 hover:text-slate-700 hover:dark:text-slate-300">
+                AdiNews
+              </span>
+            </NavLink>
           </h1>
           <div className="hidden w-2/4 justify-center lg:flex right-0 items-center gap-6">
             <NavItem url="/" title="Trending" />

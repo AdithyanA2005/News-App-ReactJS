@@ -22,6 +22,6 @@
 
 - [x] Add Hide Sidebar on scroll functionality
 
-- [ ] Make Logo working
+- [x] Make Logo working
 
 - [ ] Add BackToTop Button
