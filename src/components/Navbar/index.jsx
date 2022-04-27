@@ -134,7 +134,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      abso
+
       {/* MOBILE NAVBAR */}
       <div ref={sidebarRef}>
         <div
