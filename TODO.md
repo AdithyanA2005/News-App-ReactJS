@@ -8,8 +8,6 @@
 
 - [x] Close Sidebar Dropdown when sidebar closes
 
-- [ ] Customise scrollbar for diffrent browsers
-
 - [x] Clean index.css
 
 - [x] Build the spinner component
