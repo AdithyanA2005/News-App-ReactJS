@@ -134,9 +134,19 @@ export default function Navbar() {
           </h1>
           <div className="hidden w-2/4 justify-center lg:flex right-0 items-center gap-6">
             <NavItem url="/" title="Trending" />
-            <Dropdown isDeskNav title="Category" links={categoryLinks} />
-            <Dropdown isDeskNav title="Language" links={languageLinks} />
-            <Dropdown isDeskNav title="Country" links={countryLinks} />
+            <Dropdown
+              isDeskNav
+              title="Category"
+              sidebarOpen={sidebarActive}
+              links={categoryLinks}
+            />
+            <Dropdown
+              isDeskNav
+              title="Language"
+              sidebarOpen={sidebarActive}
+              links={languageLinks}
+            />
+            <Dropdown isDeskNav title="Country" sidebarOpen={sidebarActive} links={countryLinks} />
           </div>
           <div className="justify-end w-1/4 flex right-0 items-center gap-5">
             <DarkModeButton isDark={isDarkTheme} onClickHandle={toggleTheme} />
@@ -152,9 +162,9 @@ export default function Navbar() {
             sidebarActive ? "translate-x-0" : "translate-x-full"
           } dropdown-content flex flex-col gap-4 p-4 pt-16 top-0 fixed w-72 h-screen overflow-y-scroll right-0 ease-in-out duration-500 bg-white backdrop-blur-xl bg-opacity-80 dark:backdrop-blur-xl dark:bg-opacity-80 dark:bg-slate-700`}
         >
-          <Dropdown title="Category" links={categoryLinks} />
-          <Dropdown title="Language" links={languageLinks} />
-          <Dropdown title="Country" links={countryLinks} />
+          <Dropdown title="Category" sidebarOpen={sidebarActive} links={categoryLinks} />
+          <Dropdown title="Language" sidebarOpen={sidebarActive} links={languageLinks} />
+          <Dropdown title="Country" sidebarOpen={sidebarActive} links={countryLinks} />
         </div>
       </div>
     </>

@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 
 export default function Dropdown(props) {
   const [isMobDropActive, setIsMobDropActive] = useState(false);
   const toggleMobDropActive = () => setIsMobDropActive(!isMobDropActive);
+  useEffect(() => {
+    if (props.sidebarOpen == false) return setIsMobDropActive(false);
+  }, [props.sidebarOpen]);
 
   return (
     <>
