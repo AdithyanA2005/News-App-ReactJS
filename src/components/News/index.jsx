@@ -23,12 +23,13 @@ export default function News(props) {
       `${props.language !== undefined ? "&language=" + props.language : ""}` +
       `${props.pageSize !== undefined ? "&pageSize=" + props.pageSize : ""}` +
       `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    console.log(url);
     loaderContext.setProgress(10);
     let rawData = await fetch(url);
     loaderContext.setProgress(60);
     let data = await rawData.json();
     loaderContext.setProgress(80);
-    setArticles(articles.concat(data.articles));
+    setArticles((prev) => prev.concat(data.articles));
     setTotalResults(data.totalResults);
     setIsLoading(false);
     loaderContext.setProgress(100);
