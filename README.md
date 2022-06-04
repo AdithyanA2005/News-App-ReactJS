@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# AdiNews
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hai Friends I am Adithyan A
 
-## Available Scripts
+## OVERVIEW
 
-In the project directory, you can run:
+> This is a news app created with reactjs and newsapi<br>
+> These are the screenshot of the complete version of the app
 
-### `yarn start`
+> ![Image-1](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r1q2tleez0rilsjpscgk.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## HOW TO USE
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1 - Clone the repository
 
-### `yarn test`
+```bash
+git clone <repo_url>
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2 - Install dependencies
 
-### `yarn build`
+```bash
+yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3 - Get your news API key
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Go to [newsapi](https://newsapi.org/) at
+  https://newsapi.org/
+- Create your free devloper account
+- Copy your api key
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4 - Create .env file
 
-### `yarn eject`
+- Create the file and add below code to it with your api key in place of _<your_api_key>_
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```env
+REACT_APP_NEWS_API_KEY = <your_api_key>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 5 - Start The Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> NOTE: This may take some time
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+yarn start
+```
 
-## Learn More
+> Finally if you see this message then you are ready to move to the next step
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+Compiled successfully!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can now view news-app in the browser.
 
-### Code Splitting
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.1.4:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Note that the development build is not optimized.
+To create a production build, use yarn build.
 
-### Analyzing the Bundle Size
+webpack compiled successfully
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 6 - Open the website
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Open your favorite web browser
+- Go to the url http://localhost:3000/
