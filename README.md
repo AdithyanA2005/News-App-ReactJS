@@ -7,14 +7,22 @@ Hai Friends I am Adithyan A
 > This is a news app created with reactjs and newsapi<br>
 > These are the screenshot of the complete version of the app
 
-> ![Image-1](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r1q2tleez0rilsjpscgk.png)
+> Light Theme
+> ![Light Theme](./.github/light.png)
+>
+> ![Light Theme And Dropdown Active](./.github/lightdropdown.png)
+
+> Dark Theme
+> ![Dark Theme](./.github/dark.png)
+>
+> ![Dark Theme And Dropdown Active](./.github/darkdropdown.png)
 
 ## HOW TO USE
 
 ### 1 - Clone the repository
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/AdithyanA2005/News-App-ReactJS
 ```
 
 ### 2 - Install dependencies
